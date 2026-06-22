@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>彩经网 · 站点说明与使用导览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f7fa;
+            color: #1e2a3a;
+            line-height: 1.7;
+        }
+
+        a {
+            color: #1b6b8f;
+            text-decoration: none;
+            transition: color 0.2s ease;
+            border-bottom: 1px solid rgba(27, 107, 143, 0.2);
+        }
+
+        a:hover {
+            color: #0d4b66;
+            border-bottom-color: #0d4b66;
+        }
+
+        /* 深色头图 hero */
+        .hero {
+            background: linear-gradient(150deg, #0a1f2f 0%, #132f41 55%, #1d4055 100%);
+            color: #e9f0f5;
+            padding: 4.5rem 1.5rem 3.8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, #f5f7fa);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #cbd9e5;
+            max-width: 680px;
+            margin: 0 auto 1.2rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 1rem;
+        }
+
+        .hero .meta-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(4px);
+            padding: 0.35rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #c5d4e2;
+            letter-spacing: 0.5px;
+        }
+
+        /* 浅色正文区容器 */
+        .container {
+            max-width: 960px;
+            margin: -1.8rem auto 2rem;
+            padding: 0 1.5rem 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 卡片风格 */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2.2rem 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 20, 35, 0.04), 0 2px 6px rgba(0,0,0,0.02);
+            transition: box-shadow 0.25s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 32px rgba(0, 20, 40, 0.06);
+        }
+
+        .card h2 {
+            font-size: 1.55rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #0e2a3a;
+            border-left: 4px solid #1b6b8f;
+            padding-left: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 1.5rem 0 0.6rem;
+            color: #1f3e51;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+            color: #2d3f4f;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-top: 0.8rem;
+        }
+
+        .feature-item {
+            background: #f4f8fc;
+            padding: 1.2rem 1.4rem;
+            border-radius: 14px;
+            border-left: 3px solid #3b7e9e;
+        }
+
+        .feature-item strong {
+            color: #113e52;
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e2e9f0;
+            padding: 1rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item .q {
+            font-weight: 600;
+            color: #0d3142;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item .a {
+            color: #3c5467;
+            padding-left: 0.2rem;
+        }
+
+        .tip-note {
+            background: #f0f5fa;
+            border-radius: 16px;
+            padding: 1.2rem 1.8rem;
+            font-size: 0.95rem;
+            border: 1px solid #d6e2ed;
+            margin-top: 0.5rem;
+        }
+
+        .tip-note strong {
+            color: #15516b;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 0.55rem 1.6rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            background: transparent;
+            border: 1px solid #1b6b8f;
+            color: #1b6b8f;
+            transition: all 0.2s;
+            text-decoration: none;
+            margin-top: 0.8rem;
+            margin-right: 0.6rem;
+        }
+
+        .btn-outline:hover {
+            background: #1b6b8f;
+            color: #ffffff;
+            border-color: #1b6b8f;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #6a7f90;
+            padding: 2rem 0 0.5rem;
+            border-top: 1px solid #dde4ec;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 2.3rem; }
+            .hero .tagline { font-size: 1rem; }
+            .card { padding: 1.6rem 1.2rem; }
+            .grid-2 { grid-template-columns: 1fr; gap: 1rem; }
+            .container { padding-left: 1rem; padding-right: 1rem; }
+            .hero { padding: 3rem 1rem 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>彩经网</h1>
+        <div class="tagline">一个关于数字与选择的信息站点 · 内容说明与使用建议</div>
+        <div class="meta-badge">站点定位 · 理性参考 · 信息整合</div>
+    </header>
+
+    <main class="container">
+        <!-- 摘要卡片：站点介绍 -->
+        <section class="card">
+            <h2>关于这里</h2>
+            <p><strong>彩经网</strong> 是一个以数字趋势与统计资料为特色的信息页面集合。站内内容围绕常见数字游戏（如数字型、区间型）的公开历史数据、冷热分布及简单统计展开，旨在为有兴趣研究数字规律的使用者提供一种整理后的参考视角。</p>
+            <p>网站本身不提供任何形式的投注、代购或实时开奖服务，也不属于任何彩票销售机构。所有数据均来自公开渠道，仅用于信息展示与个人研究。使用者应结合自身判断，理性看待任何统计结果。</p>
+            <p>如果你对数字趋势或历史频率感兴趣，可以浏览 <a href="https://zh-hans-caijing.com">彩经网</a> 中按类别整理的页面，了解不同玩法下的常见参数。</p>
+        </section>
+
+        <!-- 亮点：卡片网格 -->
+        <section class="card">
+            <h2>信息亮点</h2>
+            <div class="grid-2">
+                <div class="feature-item">
+                    <strong>历史频次整理</strong>
+                    <span style="font-size:0.95rem;">按区间、尾数、奇偶等维度统计历史出现次数，以表格和简易图表呈现。</span>
+                </div>
+                <div class="feature-item">
+                    <strong>冷热分布参考</strong>
+                    <span style="font-size:0.95rem;">用冷热指数标识数字的相对活跃程度，帮助快速识别长冷或热出号码。</span>
+                </div>
+                <div class="feature-item">
+                    <strong>多期对比</strong>
+                    <span style="font-size:0.95rem;">支持按近10期、20期或自定义期数查看数据变化，便于做简单对比。</span>
+                </div>
+                <div class="feature-item">
+                    <strong>无干扰浏览</strong>
+                    <span style="font-size:0.95rem;">页面保持克制设计，无弹窗、无诱导分享、无强制关注，信息直接呈现。</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 使用建议 + 可信说明 -->
+        <section class="card">
+            <h2>使用建议 · 可信边界</h2>
+            <p>任何基于历史数据的统计都不具有预测未来结果的能力。数字游戏的本质是独立随机事件，过去出现频率不会影响未来概率。因此，在浏览 <a href="https://zh-hans-caijing.com">彩经网</a> 时，建议你将所有统计信息视为一种趣味性整理，而非选号依据或投资参考。</p>
+            <p>网站内容不涉及任何内幕消息、保底策略或包赢方法。如果看到任何夸大其词的宣传，请保持警惕。本站仅做客观数据展示，不引导过度投入。</p>
+            <div class="tip-note">
+                <strong>📌 一条提醒：</strong> 如果你发现自己或身边的人对数字游戏产生难以控制的参与冲动，建议暂停浏览，并寻求专业帮助或设置自我限制。健康的心态比任何数字都重要。
+            </div>
+        </section>
+
+        <!-- FAQ 摘要 + 场景 -->
+        <section class="card">
+            <h2>常见问题 · 场景简述</h2>
+
+            <div class="faq-item">
+                <div class="q">❓ 这个网站能帮我提高中奖率吗？</div>
+                <div class="a">不能。任何历史统计都无法影响独立随机事件的概率。这里的数据只是提供一种观察角度，不具备预测功能。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">❓ 数据多久更新一次？</div>
+                <div class="a">根据公开信息源的更新节奏，通常在每个开奖日后数小时内完成数据同步。具体时效性以页面标注为准。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">❓ 哪些人适合浏览这个站点？</div>
+                <div class="a">对数字趋势有好奇心的普通用户、希望做简单回顾的爱好者，以及想了解历史频率统计方式的研究型读者。不适合追求必胜技巧的人。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">❓ 是否需要注册或付费？</div>
+                <div class="a">完全免费，且无需注册。所有页面可直接访问，不存在收费项目或会员专区。</div>
+            </div>
+
+            <p style="margin-top:1.2rem; font-size:0.95rem; background:#f5f9fc; padding:1rem 1.2rem; border-radius:14px;">
+                <span style="font-weight:600;">一句话概括：</span> 把 <a href="https://zh-hans-caijing.com">彩经网</a> 当一本数字小册子就好，它提供整理过的历史记录，但无法决定明天会发生什么。
+            </p>
+        </section>
+
+        <!-- 可信克制的访问说明 + 链接嵌入 -->
+        <section class="card" style="margin-bottom:1.5rem;">
+            <h2>关于访问 · 一点说明</h2>
+            <p>本站点目前以静态页面方式部署，无后端数据库，不收集任何个人隐私信息。所有内容均通过前端渲染展示，不包含第三方统计脚本或广告追踪代码。你可以放心使用浏览器直接访问。</p>
+            <p>如果你希望直接了解某个分类下的数据，可以通过 <a href="https://zh-hans-caijing.com">彩经网</a> 首页的导航区域进入对应模块。整个站点结构清晰，不设隐藏页面。我们相信，透明和节制才是信息产品应有的态度。</p>
+            <p style="margin-top:0.8rem;">最后提醒一句：数字世界令人着迷，但真实生活更值得投入。保持轻松，理性参与。</p>
+        </section>
+
+        <div class="footer-note">
+            <span>内容仅供个人参考 · 不构成任何建议</span><br>
+            <span style="opacity:0.5;">—— 保持清醒，享受理性 ——</span>
+        </div>
+    </main>
+</body>
+</html>
